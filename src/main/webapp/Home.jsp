@@ -24,9 +24,8 @@
 					<ul>
 						<li><a href="Controles.jsp">Controles</a></li>
 					 	<li><a href="Validaciones.jsp">Validaciones</a></li>
-					    <li><a href="Propiedades.jsp">Propiedades</a></li>
-					    <li><a href="ListadoArticulos.jsp">Listado Articulos</a></li>
-					    <li><a href="ServletArticulos?Param=list">Listar articulos</a></li>
+					    <li><a href="Propiedades.jsp">Propiedades</a></li>					 
+					    <li><a href="ServletArticulos?Param=list">Listar Articulos</a></li>
 					</ul>
 			
 			</li>

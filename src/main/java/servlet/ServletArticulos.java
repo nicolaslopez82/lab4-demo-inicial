@@ -45,8 +45,8 @@ public class ServletArticulos extends HttpServlet {
 			}
 			case "list":
 			{
-				request.setAttribute("listaArt", negArt.listarArticulos());	
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/ListarArticulos.jsp");
+				request.setAttribute("articuloList", negArt.listarArticulos());	
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/ListadoArticulos.jsp");
 				dispatcher.forward(request, response);
 				break;
 			}

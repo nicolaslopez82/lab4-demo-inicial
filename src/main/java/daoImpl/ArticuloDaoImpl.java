@@ -1,9 +1,6 @@
 package daoImpl;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +12,6 @@ import entidad.Categoria;
 public class ArticuloDaoImpl implements ArticuloDao {
 
 	private Conexion cn;
-	
-	private String host = "jdbc:mysql://localhost:3306/";
-	private String user = "root";
-	private String pass = "admin";
-	private String dbName = "bdArticulos";
 
 	public ArticuloDaoImpl()
 	{
@@ -27,27 +19,13 @@ public class ArticuloDaoImpl implements ArticuloDao {
 	}
 	
 	@Override
-	public List<Articulo> obtenerTodos() {			
-		
-//		cn = new Conexion();
-//		cn.Open();
-		
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		
-		Connection conn = null;
-		
+	public List<Articulo> obtenerTodos() {
+		cn = new Conexion();
+		cn.Open();
 		 List<Articulo> list = new ArrayList<Articulo>();
 		 try
 		 {
-			 conn = DriverManager.getConnection(host + dbName, user, pass);
-			 Statement st = conn.createStatement();
-				
-//			 ResultSet rs= cn.query("Select articulos.idArticulo, articulos.nombre, articulos.precio, articulos.estado, categorias.idCategoria, categorias.nombre , categorias.estado from articulos inner join categorias on articulos.idCategoria = categorias.idCategoria");
-			 ResultSet rs= st.executeQuery("Select articulos.idArticulo, articulos.nombre, articulos.precio, articulos.estado, categorias.idCategoria, categorias.nombre , categorias.estado from articulos inner join categorias on articulos.idCategoria = categorias.idCategoria");
+			 ResultSet rs= cn.query("Select articulos.idArticulo, articulos.nombre, articulos.precio, articulos.estado, categorias.idCategoria, categorias.nombre , categorias.estado from articulos inner join categorias on articulos.idCategoria = categorias.idCategoria");
 			 while(rs.next())
 			 {
 				 Articulo art = new Articulo();
